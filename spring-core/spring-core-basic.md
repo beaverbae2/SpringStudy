@@ -190,3 +190,29 @@ OCP, DIP 위배
 
 <br>
 <br>
+
+## 스프링 핵심 원리 이해2 - 객체 지향 원리 적용
+
+### 새로운 할인 정책 개발
+
+- 정률 할인 정책으로 변경 : 10% 할인
+
+<br>
+<br>
+
+### 새로운 할인 정책 문제점
+
+- 할인 정책 변경 시 클라이언트인 `OrderServiceImpl` 수정 필요
+
+  - OCP 위배 : 할인 정책 변경 시, 코드 변경 발생
+
+  - DIP 위배 :  `OrderServiceImpl` 이 `DiscountPolicy` (추상)와 `FixDiscountPolicy` (구체) 모두에 의존
+
+- 해결 방법
+
+  - 클라이언트가 인터페이스에만 의존하게 하기
+    - `OrderServiceImpl`이 `DiscountPolicy`에만 의존하게 함
+    - 구현체가 없어서 실행 못함 (`NPE`)
+
+<br>
+<br>
